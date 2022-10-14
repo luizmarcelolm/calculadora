@@ -12,6 +12,41 @@ button:hover{
 }
 
 .fundo{
+    max-width: 300px;
+    text-align: center;
     background-color:black;
     border-radius: 1em;
+    padding: 1em;
+}
+
+.red{
+    background-color: red;
+    color: white;
+}
+
+.yellow{
+    background-color: #FF8C00;
+    color:white;
+}
+
+.green{
+    background-color: yellowgreen;
+    color:white;
+}
+
+.blue{
+    background-color: #1E90FF;
+    color:white;
+}
+
+.result{
+    color:black;
+    text-align:right;
+    margin-right: 1em;
+}
+
+.fundoResult{
+     background-color: white;
+     border-radius: 1em;
+
 }
