@@ -63,9 +63,11 @@ function calcular(){
 }
 
 //deleta ultimo numero digitado
-function del(e){
-var input = e.target.value
-setNumero = input.substring(0,input.length-1);
+function del(){
+setNumero(numero.slice(0,-1));
+if (numero.length === 1) {
+    setNumero(0);
+} 
 }
 
     return(
