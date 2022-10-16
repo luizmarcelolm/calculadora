@@ -2,29 +2,33 @@ import React, {useState} from "react";
 import "./Calculadora.css"
 import Container from '@mui/material/Container';
 import {Box} from '@mui/material';
-
-
+ 
 
 export default function Calculadora(){
-
+const [igual,setIgual] = useState("=");  
+const [digitados,setDigitados] = useState(0);
 const [numero,setNumero] = useState(0);
-const [antigoNumero,setAntigoNumero] = useState(0);
+const [antigoNumero,setAntigoNumero] = useState();
 const [operador,setOperador] = useState();
 
 
 //tira zero do input e subtitui por numero digitado
 function inputNumero(e){
     var input = e.target.value
-    if(numero===0)
+    if(numero===0){
     setNumero(input);
-    else{
+    setDigitados(input);
+    }else{
         setNumero(numero + input);
+        setDigitados(numero + input);
     }
 }
 
+
 //limpa input
 function limpar(){
-    setNumero(0)
+    setNumero(0);
+    setDigitados(0);
 }
 
 //calculo de porcentagem
@@ -46,18 +50,23 @@ function operacaoHandle(e){
     var operadorInput=e.target.value;
     setOperador(operadorInput);
     setAntigoNumero(numero);
+    setDigitados(numero + operadorInput);
     setNumero(0);
-}
+} 
 
 //calcula os numeros digitados
 function calcular(){
    if (operador === "/"){
+    setDigitados(antigoNumero + operador + numero + igual)
     setNumero(parseFloat(antigoNumero) / parseFloat(numero))
    }else if (operador === "x"){
+    setDigitados(antigoNumero + operador + numero + igual)
         setNumero(parseFloat(antigoNumero) * parseFloat(numero))
    }else  if (operador === "-"){
+    setDigitados(antigoNumero + operador + numero + igual)
     setNumero(parseFloat(antigoNumero) - parseFloat(numero))
    }else if (operador === "+"){
+    setDigitados(antigoNumero + operador + numero + igual)
         setNumero(parseFloat(antigoNumero) + parseFloat(numero));
    }
 }
@@ -65,8 +74,10 @@ function calcular(){
 //deleta ultimo numero digitado
 function del(){
 setNumero(numero.slice(0,-1));
+setDigitados(digitados.slice(0,-1));
 if (numero.length === 1) {
     setNumero(0);
+    setDigitados(0);
 } 
 }
 
@@ -76,6 +87,7 @@ if (numero.length === 1) {
             <Container maxWidth="xs">
                 <div className="fundo">
                   <div className="fundoResult">
+                    <h2 className="digitados" >{digitados}</h2>  
                     <h1 className="result">{numero}</h1>  
                   </div>
                 <button className="red" onClick={limpar}>AC</button>
