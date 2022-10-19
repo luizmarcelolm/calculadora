@@ -1,6 +1,6 @@
 # CALCULADORA
 
-Calculadora criada com React.js responsivo para ser utilizada via navegador no celular e notebook.
+Calculadora criada com React.js com o objetivo de aperfeiçoar meu conhecimento na ferramenta e praticar css.
 
 Link do projeto
 https://calculadora-luizmarcelolm.vercel.app/
