@@ -57,16 +57,16 @@ function operacaoHandle(e){
 //calcula os numeros digitados
 function calcular(){
    if (operador === "/"){
-    setDigitados(antigoNumero + operador + numero + igual)
-    setNumero(parseFloat(antigoNumero) / parseFloat(numero))
+        setDigitados(antigoNumero + operador + numero + igual)
+        setNumero(parseFloat(antigoNumero) / parseFloat(numero))
    }else if (operador === "x"){
-    setDigitados(antigoNumero + operador + numero + igual)
+        setDigitados(antigoNumero + operador + numero + igual)
         setNumero(parseFloat(antigoNumero) * parseFloat(numero))
    }else  if (operador === "-"){
-    setDigitados(antigoNumero + operador + numero + igual)
-    setNumero(parseFloat(antigoNumero) - parseFloat(numero))
+        setDigitados(antigoNumero + operador + numero + igual)
+        setNumero(parseFloat(antigoNumero) - parseFloat(numero))
    }else if (operador === "+"){
-    setDigitados(antigoNumero + operador + numero + igual)
+        setDigitados(antigoNumero + operador + numero + igual)
         setNumero(parseFloat(antigoNumero) + parseFloat(numero));
    }
 }
@@ -87,7 +87,7 @@ if (numero.length === 1) {
             <Container maxWidth="xs">
                 <div className="fundo">
                   <div className="fundoResult">
-                    <h2 className="digitados" >{digitados}</h2>  
+                    <h2 className="digitados">{digitados}</h2>
                     <h1 className="result">{numero}</h1>  
                   </div>
                 <button className="red" onClick={limpar}>AC</button>
